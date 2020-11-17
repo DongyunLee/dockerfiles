@@ -1,0 +1,10 @@
+version: "3.8"
+services:
+    parrot:
+        build:
+            context: .
+        container_name: parrot
+        volumes:
+            - ./parrot:/work
+        # restart: always
+

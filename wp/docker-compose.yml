@@ -1,0 +1,18 @@
+version: "3.8"
+services:
+    gm:
+        build:
+            context: .
+        #image: wordpress
+        container_name: gm 
+        ports:
+            - 8080:80
+        environment:
+            WORDPRESS_DB_HOST: rm-2zedvlu8389rhw5e0.mysql.rds.aliyuncs.com
+            WORDPRESS_DB_USER: ch4o5
+            WORDPRESS_DB_PASSWORD: Mao+690629
+            WORDPRESS_DB_NAME: gm_php
+        #volumes:
+        #    - /srv/php/gm-php.com:/var/www/html
+        restart: always
+

@@ -1,0 +1,31 @@
+# ch4o5's passport Environment
+version: "3.8"
+services:
+    nginx:
+        build:
+            context: /Users/ldyseiua.com/Projects/docker/ngx 
+        container_name: nginx
+        links:
+            - passport
+        restart: always
+        ports:
+            - "80:80"
+        volumes:
+            - /Users/ldyseiua.com/Projects/ngx:/etc/nginx/conf.d
+            - /Users/ldyseiua.com/Projects/php/novo-passport:/var/www/html
+
+    passport:
+        build:
+            context: /Users/ldyseiua.com/Projects/docker/laravel
+        container_name: passport 
+        restart: always
+        environment:
+            DB_HOST: rm-2zedvlu8389rhw5e0.mysql.rds.aliyuncs.com
+            DB_USER: ch4o5
+            DB_PASSWORD: Mao+690629
+            DB_NAME: novo-passport
+        tty: true
+        volumes:
+            - /Users/ldyseiua.com/Projects/php/novo-passport:/var/www/html
+        ports:
+            - 8000:8000
